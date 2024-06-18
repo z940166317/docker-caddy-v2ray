@@ -1,0 +1,10 @@
+443 {
+  root * /etc/caddy/site/site
+  file_server
+  tls xxx@gmail.com
+  @v2ray_ws {
+    header Connection *Upgrade*
+    header Upgrade websocket
+  }
+  reverse_proxy @v2ray_ws host.docker.internal:6789
+}

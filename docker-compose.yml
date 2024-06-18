@@ -1,0 +1,32 @@
+version: "3.2"
+services:
+   caddy:
+      image: caddy
+      container_name: caddy
+      ports:
+         - "80:80"
+         - "443:443"
+      volumes:
+         - ./caddy:/etc/caddy
+      command:
+         - caddy
+      logging:
+         driver: "json-file"
+         options:
+            max-size: "9m"
+            max-file: "3"
+      
+   v2ray:
+      image: teddysun/v2ray
+      container_name: v2ray
+      ports:
+         - "6789:6789"
+      volumes:
+         - ./v2ray:/etc/v2ray
+      command:
+         - v2ray -config=/etc/v2ray/config.json
+      logging:
+         driver: "json-file"
+         options:
+            max-size: "9m"
+            max-file: "3"
