@@ -10,6 +10,9 @@ services:
          - ./caddy:/etc/caddy
       command:
          - caddy
+         - run
+         - --config
+         - /etc/caddy/Caddyfile
       logging:
          driver: "json-file"
          options:
@@ -17,14 +20,16 @@ services:
             max-file: "3"
       
    v2ray:
-      image: teddysun/v2ray
+      image: teddysun/v2ray:5.16.1
       container_name: v2ray
       ports:
          - "6789:6789"
       volumes:
          - ./v2ray:/etc/v2ray
       command:
-         - v2ray -config=/etc/v2ray/config.json
+         - v2ray
+         - run
+         - -config=/etc/v2ray/config.json
       logging:
          driver: "json-file"
          options:

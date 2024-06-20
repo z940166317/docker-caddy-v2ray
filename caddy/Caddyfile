@@ -1,5 +1,10 @@
-443 {
-  root * /etc/caddy/site/site
+:80 {
+  root * /etc/caddy/site
+  file_server
+}
+
+:443 {
+  root * /etc/caddy/site
   file_server
   tls xxx@gmail.com
   @v2ray_ws {
