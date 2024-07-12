@@ -35,3 +35,17 @@ services:
          options:
             max-size: "9m"
             max-file: "3"
+
+   frps:
+      image: snowdreamtech/frps
+      container_name: frps
+      ports:
+         - "7000:7000"
+         - "7500:7500"
+      volumes:
+         - ./frp/frps.toml:/etc/frp/frps.toml
+      logging:
+         driver: "json-file"
+         options:
+            max-size: "3m"
+            max-file: "3"
