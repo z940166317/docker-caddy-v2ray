@@ -1,0 +1,12 @@
+transport.tls.enable = true
+serverAddr = ""
+serverPort = 7000
+auth.token = ""
+
+[[proxies]]
+name = "test-http"
+type = "http"
+localIP = "host.docker.internal"
+localPort = 6601
+customDomains = [""]
+
